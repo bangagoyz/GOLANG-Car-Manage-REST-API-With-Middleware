@@ -16,7 +16,7 @@ func GetCarId(c *gin.Context) {
 	userData := c.MustGet("userData").(jwt.MapClaims)
 	userId := uint(userData["id"].(float64))
 	Car := models.Car{}
-	CarId, _ := strconv.Atoi("carId")
+	CarId, _ := strconv.Atoi(c.Param("carId"))
 
 	Car.UserID = userId
 	Car.ID = uint(CarId)
